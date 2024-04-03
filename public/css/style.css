@@ -31,7 +31,7 @@ header {
 
 footer {
   width: 100%;
-  padding: 70px 30px;
+  padding: 50px 30px;
   color: #fff;
   background: #000;
   text-align: center;
@@ -82,6 +82,87 @@ footer {
 
 .bmi_solution_container {
   background: #bdc6b5;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.bmi_solution_container1 {
+  background: #f0ede6;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.bmr_factor_container{
+  background: #f0ede6;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.tdee_knowledge_container {
+  background: #b1b9a3;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.tdee_element_container {
+  background: #8b977f;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.tdee_goal_container {
+  background: #f0ede6;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.BMI_infographic_container {
+  background: #eeeee7;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+
+}
+.BMR_infographic_container {
+  background: #f4ede5;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+
+}
+.bmr_determinant_container {
+  background: #dbd2c3;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.bmi_solution_container2 {
+  background: #dbd2c3;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.bmi_solution_container3 {
+  background: #bbbbbb;
   width: 100%;
   padding-top: 20px;
   padding-left: 10%;
@@ -146,6 +227,16 @@ h1 {
 
 .BMI {
   text-align: center;
+}
+
+.BMR {
+  text-align: center;
+}
+
+
+.Manual {
+  text-align: center;
+  background-color: #fff;
 }
 
 .BMI h1 {
@@ -271,6 +362,17 @@ button.calculate:hover {
   margin-bottom: 15px;
 }
 
+.result #result1 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #495e5f;
+  background-color: #eee;
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 55px;
+  margin-bottom: 15px;
+}
+
 .gender {
   display: flex;
   justify-content: space-around;
@@ -337,6 +439,42 @@ button.calculate:hover {
   height: 8px;
   border-radius: 50%;
   background: white;
+}
+.daily-calories {
+  display: none;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.daily-calories h4 {
+  padding: 5px 10px;
+  text-align: center;
+  color: #5f967c;
+}
+
+.daily-calories ul {
+  margin-left: 0%
+}
+
+.activity-levels {
+  list-style-type: none;
+  border-top: 1px solid #ddd;
+}
+
+.activity-levels li {
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activity-levels li:nth-child(even) {
+  background: rgba(105, 90, 205, 0.05);
+}
+
+.activity-levels p {
+  line-height: 1.15;
 }
 
 /* END Style for Radio */

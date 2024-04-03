@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -30,7 +30,7 @@
     <!-- part calculate BMI  -->
     <div class="bmi_container">
       <div class="box">
-        <h1>BMI Calculator</h1>
+        <h1>Health Calculator</h1>
         <div class="content">
           <div class="texttitle">
             <p>Enter Your Age</p>
@@ -45,7 +45,8 @@
             id="age"
             autocomplete="off"
             required
-            min="1" max="120"
+            min="1"
+            max="120"
           />
         </div>
         <div class="gendertitle">
@@ -81,12 +82,58 @@
         </div>
 
         <button class="calculate" id="submit" onclick="calculate();">
-          Calculate BMI
+          Calculate health
         </button>
         <div class="result">
           <p>Your BMI is</p>
           <div id="result">00.00</div>
           <p class="comment"></p>
+        </div>
+        <div class="result">
+          <p>Your BMR is</p>
+          <div id="result1">00.00</div>
+          <div class="daily-calories">
+            <h4>Daily Calorie Needs (TDEE)</h4>
+
+            <ul class="activity-levels">
+                <li>
+                    <p>
+                        <strong class="name">Sedentary</strong>
+                        <small class="desc">Little to no exercise</small>
+                    </p>
+                    <span class="value" id="sedentary">0</span>
+                </li>
+                <li>
+                    <p>
+                        <strong class="name">Lightly Active</strong>
+                        <small class="desc">Light exercise or sports (1-3 days/week)</small>
+                    </p>
+                    <span class="value" id="light">0</span>
+                </li>
+                <li>
+                    <p>
+                        <strong class="name">Moderately Active</strong>
+                        <small class="desc">Moderate exercise or sports (4-5 days/week)</small>
+                    </p>
+                    <span class="value" id="moderate">0</span>
+                </li>
+                <li>
+                    <p>
+                        <strong class="name">Very Active</strong>
+                        <small class="desc">Hard exercise or sports (6-7 days/week)</small>
+                    </p>
+                    <span class="value" id="very-active">0</span>
+                </li>
+                <li>
+                    <p>
+                        <strong class="name">Super Active</strong>
+                        <small class="desc">Very hard exercise, physical job, or training twice a
+                            day</small>
+                    </p>
+                    <span class="value" id="super-active">0</span>
+                </li>
+            </ul>
+        </div>
         </div>
       </div>
 
@@ -95,7 +142,16 @@
 
     <!-- bmi meaning and description -->
     <div class="bmi_info_container">
-      <h1>BMI information</h1>
+      <h1 style="text-align: center;">BMI information</h1>
+      <div>
+        <div class="BMI">
+          <img
+            src="https://www.drshikhasharma.com/wp-content/uploads/2019/10/21141646/BMI-Calculator.png"
+            height="200"
+          />
+          <br /><br />
+        </div>
+      </div>
       <p>BMI ย่อมาจาก <b>Body Mass Index </b></p>
       <br />
       <p><b>สูตรการคำนวณ</b> = น้ำหนักตัว[Kg] / (ส่วนสูง[m] ยกกำลังสอง)</p>
@@ -356,8 +412,266 @@
       <br />
       <br /><br />
     </div>
-    <br>
-    <div id="postData" style="background-color: #fff;"></div>
+    <div>
+      <div class="BMI_infographic_container">
+        <br />
+        <h1 style="text-align: center;color:#000">BMI Infographic</h1><br>
+        <img
+          src="https://i.pinimg.com/564x/a2/3f/c5/a23fc539da8beea68f820dcee519142e.jpg"
+          height="500"
+        /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <img
+          src="https://i.pinimg.com/564x/f0/b6/8a/f0b68ade282fa528cf70efff789659f2.jpg"
+          height="500"
+        /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <img
+          src="https://i.pinimg.com/564x/6b/51/96/6b519648edee3cd620d7a8282869c72b.jpg"
+          height="500"
+        /> 
+       <br><br><br><br>
+    </div> 
+    <!-- solution for control bmi to normal  -->
+    <div>
+      <div class="BMR">
+        <br /><br />
+        <h1 style="text-align: center;color:#000">BMR Information</h1>
+        <img
+          src="https://i.pinimg.com/564x/91/a9/5e/91a95e9e21281cebd948004cba1ed6c3.jpg"
+          width="250"
+          height="250"
+        />
+        <br />
+        <p style="color: #000;">จำนวนแคลอรี่ที่ร่างกายของคุณเผาผลาญขณะพักผ่อน นอนหลับ
+          หรือทำกิจกรรมน้อยที่สุด<br> BMR ของคุณคิดเป็นประมาณ 40-60%
+          ของพลังงานทั้งหมดที่คุณเผาผลาญในแต่ละวัน</p>
+      </div><br><br>
+    </div>
+    <!-- solution for control bmi to normal  -->
+    <div class="bmr_factor_container">
+      <h1>BMR Factors</h1>
+      <p style="color: #000"><b>ปัจจัยที่มีผลต่อ BMR:</b></p>
+      <br />
+      <li><b>เพศ:</b> ผู้หญิงโดยทั่วไปมี BMR ต่ำกว่าผู้ชาย</li>
+      <li><b>อายุ:</b> BMR ของคุณจะลดลงเมื่ออายุมากขึ้น</li>
+      <li>
+        <b>น้ำหนัก:</b> BMR ของคุณจะเพิ่มขึ้นเมื่อน้ำหนักตัวของคุณเพิ่มขึ้น
+      </li>
+      <li><b>ส่วนสูง:</b> BMR ของคุณจะเพิ่มขึ้นเมื่อส่วนสูงของคุณเพิ่มขึ้น</li>
+      <li>
+        <b>องค์ประกอบร่างกาย:</b> คนที่มีมวลกล้ามเนื้อมากกว่าไขมันมักจะมี BMR
+        สูงกว่า
+      </li>
+      <br />
+      <h1>BMR Significance</h1>
+      <li>
+        <b>1. กำหนดเป้าหมายแคลอรี่:</b> คุณสามารถใช้ BMR
+        ของคุณเพื่อกำหนดจำนวนแคลอรี่ที่คุณต้องการทานต่อวันเพื่อลดน้ำหนัก
+        เพิ่มน้ำหนัก หรือรักษารูปร่าง
+      </li>
+      <li>
+        <b>2. ติดตามความคืบหน้า:</b> คุณสามารถติดตาม BMR
+        ของคุณเพื่อดูว่าเปลี่ยนแปลงอย่างไรเมื่อเวลาผ่านไป
+      </li>
+      <li>
+        <b>3. เข้าใจการเผาผลาญพลังงานของคุณ:</b>
+        คุณสามารถเข้าใจว่าร่างกายของคุณเผาผลาญพลังงานอย่างไร
+      </li>
+      <br />
+      <br />
+      <br /><br />
+    </div>
+    <div>
+      <div class="BMR">
+        <br /><br />
+        <img
+          src="https://i.pinimg.com/564x/f7/c2/01/f7c201b9f9291ac5a562b918a3a998da.jpg"
+          width="250"
+          height="250"
+        />
+        <img
+        src="https://i.pinimg.com/564x/aa/b3/aa/aab3aaf6144a081356f80304850255d8.jpg"
+        width="250"
+        height="250"
+      />
+        <img
+        src="https://i.pinimg.com/564x/70/d8/8b/70d88b6322193d6ec1d2b4c61c97e619.jpg"
+        width="250"
+        height="250"
+      />
+        <br /><br />
+      </div>
+    </div>
+    <!-- solution for control bmi to normal  -->
+    <div class="bmr_determinant_container ">
+      <h1>BMR Determinants</h1>
+      <p style="color: #b6a385"><b>1. Sex hormone</b></p>
+      <br />
+      <p>
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+        &nbsp;ฮอร์โมนเพศสามารถกำหนด “จำนวน” ไขมันที่จะนำไปใช้เป็นพลังงานและที่จะ
+        “กักเก็บ” ไว้ได้ ฮอร์โมนเพศชายจะสั่งให้ร่างกายดึงไขมันออกไปใช้ได้
+        แถมยังกักเก็บไขมันใหม่ไว้น้อยกว่าเพศหญิง
+        จึงทำให้ผู้ชายลดน้ำหนักได้เร็วกว่า
+      </p>
+      <br />
+      <p style="color: #b6a385"><b>2. Muscle mass</b></p>
+      <br />
+      <p>
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+        &nbsp;ใครที่มีกล้ามเนื้อที่ชัดเจน กระชับ ไม่หย่อนคล้อย
+        แสดงว่ามีกล้ามเนื้อมากกว่าไขมัน ดังนั้นค่า BMR
+        จึงมีค่าสูงกว่าคนที่ร่างกายมีแต่ไขมัน
+      </p>
+      <br />
+      <p style="color: #b6a385"><b>3. Age</b></p>
+      <br />
+      <p>
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+        &nbsp;อายุที่มากขึ้นจะมีผลต่ออัตราการเผาผลาญพลังงาน โดยค่า BMR
+        จะลดลงประมาณร้อยละ 5 ในทุกๆ 10 ปี และมักเริ่มลดหลังจากอายุ 40 ปี
+      </p>
+      <br />
+      <p style="color: #b6a385"><b>4. Eating habits</b></p>
+      <br />
+      <p>
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+        &nbsp;การรับประทานอาหารมื้อเล็กๆ บ่อยๆ
+        จะช่วยกระตุ้นระบบเผาผลาญให้ขยันทำงานตลอดวัน ค่า BMR
+        จึงสูงและลดน้ำหนักได้มากขึ้น
+        การทิ้งช่วงการรับประทานระหว่างมื้อนานเกินไปจะทำให้ระบบเผาผลาญปรับตัวให้ทำงานช้าลง
+      </p>
+      <br />
+      <p style="color: #b6a385"><b>5. Pregnancy</b></p>
+      <br />
+      <p>
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+        &nbsp;ในช่วงตั้งครรภ์ร่างกายของแม่จะมี BMR สูงขึ้นถึงร้อยละ 15-30
+        และในช่วงให้นมบุตรก็จะยิ่งสูงขึ้นถึงร้อยละ 40
+        เพราะการเลี้ยงดูเด็กทารกในขณะที่เด็กเจริญเติบโตขึ้นเรื่อยๆ
+        (ไปจนถึงตอนที่ผลิตน้ำนมให้เด็กดื่ม)
+      </p>
+      <br />
+      <p style="color: #b6a385"><b>6. Climate</b></p>
+      <br />
+      <p>
+        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+        &nbsp;คนที่อาศัยอยู่ในเขตร้อนแบบบ้านเรา ค่า BMR จะสูงกว่าคนที่อาศัยอยู่ในเขตอบอุ่นถึงร้อยละ 5-20
+      </p>
+      <br />
+      <br /><br />
+    </div>
+    <div>
+      <div>
+        <div class="BMR_infographic_container">
+          <br />
+          <h1 style="text-align: center;color:#000">BMR Infographic</h1><br>
+          <img
+            src="https://feastgood.com/wp-content/uploads/2022/06/How-do-you-lose-weight-with-a-1400-bmr-4-steps.jpg"
+            height="400"
+          /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+          <img
+            src="https://feastgood.com/wp-content/uploads/2022/06/Are-there-risks-with-eating-under-your-bmr-of-1400-calories.jpg"
+            height="400"
+          /> 
+         <br><br><br><br><br>
+      </div>
+      <div class="BMR">
+        <br /><br />
+        <h1 style="text-align: center;color:#000">TDEE Information</h1><br>
+        <img
+          src="https://i.pinimg.com/564x/e2/9f/87/e29f8773b1ebd9afd5006c3c622ba8ca.jpg"
+          height="230"
+        />
+        <br /><br>
+        <p style="color: #000;">TDEE ย่อมาจาก Total Daily Energy Expenditure หรือ
+          การใช้พลังงานทั้งหมดต่อวัน<br>
+          เป็นการประมาณจำนวนแคลอรี่ที่ร่างกายของคุณเผาผลาญในแต่ละวัน</p>
+      </div><br><br>
+    </div> 
+    <div class="tdee_knowledge_container">
+      <h1  style="color: #fefefe;">TDEE Knowledge</h1>
+      <br />
+      <li>TDEE เป็นการประมาณค่า และการเผาผลาญแคลอรี่จริงของคุณอาจแตกต่างกันไปในแต่ละวัน</li>
+      <li>TDEE ของคุณสามารถเปลี่ยนแปลงได้ตามเวลาเมื่อน้ำหนัก ระดับกิจกรรม
+        หรือองค์ประกอบร่างกายของคุณเปลี่ยนแปลงน</li>
+      <li>
+        ผู้หญิงโดยทั่วไปมี TDEE ต่ำกว่าผู้ชาย
+      </li>
+      <li>ระดับกิจกรรมมีผลต่อ TDEE ของคุณมากที่สุด</li>
+      <li>
+        โรคบางชนิดสามารถส่งผลต่อ TDEE ของคุณ<br>คุณควรปรึกษาโภชนาการหรือผู้เชี่ยวชาญด้านสุขภาพเพื่อคำนวณ TDEE ของคุณอย่างแม่นยำ
+      </li>
+      <br />
+      <br /><br />
+    </div>
+    <div class="tdee_element_container">
+      <h1  style="color: #fefefe;">TDEE Core Elements</h1>
+      <br />
+      <li>อัตราการเผาผลาญพลังงานพื้นฐาน (BMR): แคลอรี่ที่ร่างกายของคุณเผาผลาญเมื่อพักผ่อน
+        เพื่อรักษาฟังก์ชันพื้นฐาน เช่น การหายใจและการไหลเวียนโลหิต</li>
+      <li>ระดับกิจกรรม: แคลอรี่ที่คุณเผาผลาญผ่านกิจกรรมประจำวัน เช่น การเดิน การทำงาน
+        และการออกกำลังกาย</li>
+      <li>
+        ผลกระทบทางความร้อนของอาหาร (TEF): พลังงานที่ร่างกายของคุณใช้ในการย่อย ดูดซึมและเก็บสะสมอาหาร
+      </li>
+      <br />
+      <br /><br />
+    </div>
+    <div class="tdee_goal_container">
+      <h1  style="color: #b6a385;">TDEE Goal</h1>
+      <li>เมื่อทราบ TDEE ของคุณแล้ว คุณสามารถใช้ TDEE
+        นี้เพื่อตั้งเป้าหมายแคลอรี่ของคุณสำหรับ:</li>
+      <li>การลดน้ำหนัก: ทานแคลอรี่น้อยกว่า TDEE</li>
+      <li>
+        การเพิ่มน้ำหนัก: ทานแคลอรี่มากกว่า TDEE
+      </li>
+      <li>การรักษารูปร่าง: ทานแคลอรี่เท่ากับ TDEE</li>
+      <br />
+      <br /><br />
+    </div>
+    <div>
+      <div class="BMI">
+        <br /><br />
+        <h1 style="text-align: center;color:#000">Low Calories needs</h1><br><br>
+        <img
+          src="https://i.pinimg.com/564x/10/66/cd/1066cd619792e6a4006d50f4ab350db8.jpg"
+          height="450"
+        />  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+        <img
+          src="https://i.pinimg.com/564x/10/24/ed/1024edee61cc20f11362ececc5a5a1ba.jpg"
+          height="450"
+        />  &nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;
+        <img
+        src="https://i.pinimg.com/564x/f6/96/8f/f6968f183fb6fa6a8c49a5bd08d44f7d.jpg"
+        height="450"
+      /><br /><br><br /><br>
+    </div> 
+    <!-- solution for control bmi to normal  -->
+    <div class="Manual">
+      <br /><br />
+      <h1 style="text-align: center;color:#000">User Manual</h1><br>
+      <img
+        src="https://i.pinimg.com/564x/e2/9f/87/e29f8773b1ebd9afd5006c3c622ba8ca.jpg"
+        height="230"
+      />
+      <br /><br>
+      <h3>How to use Calculator</h3>
+      <p style="color: #000;">ให้ทำการกรอกค่าสำหรับการคำนวณค่าสุขภาพ โดยใส่ตัวเลข อายุ น้ำหนัก <br>ส่วนสูง
+        และเลือกเพศ เมื่อต้องการคำนวณค่าใดให้กดปุ่ม <br> calculate health ซึ่ง TDEE เป็นค่าที่คำนวณจาก BMR</p>
+      <br><br>
+      <h3>How to display</h3>
+      <p style="color: #000;">การแสดงผลลัพธ์ของ BMI จะแสดงเป็นค่า BMI ตามด้วยเกณฑ์ดัชนีมวลกายด้านล่าง <br>ส่วน BMR
+        จะแสดงเป็นตัวเลข ซึ่งมีตาราง TDEE ประกอบด้วย โดยแบ่งตาม<br>ความถี่ของการออกกำลังกายเป็น 5
+        ระดับ</p>
+     <br><br>
+     <h3>How to read information</h3>
+     <p style="color: #000;">ข้อมูลที่แสดงจะประกอบด้วยความหมายของค่านั้นๆ และข้อมูล<br>ตารางเกณฑ์ดัชนีมวลกาย
+      โรคที่อาจเกิดขึ้นเมื่อค่า BMI สูงกว่ามาตรฐาน <br>รวมถึงวิธีที่ทำให้น้ำหนักอยู่ในเกณฑ์ปกติ
+      ต้องการ<br>อ่านข้อมูลใดสามารถเลื่อนลงเพื่อดูรายละเอียดได้เลย</p>
+    </div>
+    <br /><br>
+    <h1 style="text-align: center; color:#495e5f">summary report</h1><br>
+    <div id="postData" style="background-color: #fff"></div>
     <footer>
       <p>A - Care BMI calculator</p>
       <p>SF340 Project</p>

@@ -9,6 +9,12 @@ var modalContent = document.querySelector(".modal-content");
 var modalText = document.querySelector("#modalText");
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
+let resultArea1 = document.querySelector(".daily-calories");
+var sedentary = document.getElementById("sedentary");
+var light = document.getElementById("light");
+var moderate = document.getElementById("moderate");
+var veryActive = document.getElementById("very-active");
+var superActive = document.getElementById("super-active");
 
 age.addEventListener('input', (event) => {
   const inputValue = event.target.value;
@@ -46,7 +52,7 @@ weight.addEventListener('input', (event) => {
   }
 });
 
-function call_p(){
+function call_p() {
   fetch('/posts')
     .then(response => response.json())
     .then(data => {
@@ -55,7 +61,9 @@ function call_p(){
       postDataDiv.innerHTML = `
         <p class="BMI_Result_Summary">Total count: ${data.total.count}</p>
         <p class="BMI_Result_Summary">Total average age: ${data.total.avg_age}</p>
-        <p class="BMI_Result_Summary">Total average BMI: ${data.total.avg_bmi.toFixed(2)}</p>
+        <p class="BMI_Result_Summary">Total average BMI: ${parseFloat(data.total.avg_bmi).toFixed(2)}</p>
+        <p class="BMI_Result_Summary">Total average BMR: ${parseFloat(data.total.avg_bmr).toFixed(0)}</p>
+        <p class="BMI_Result_Summary">Total average TDEE: ${parseFloat(data.total.avg_tdee).toFixed(0)}</p>
         <br>
         <h2 class="BMI_Result_Summary">Breakdown by sex:</h2><br>
         <table>
@@ -65,6 +73,8 @@ function call_p(){
               <th>Count</th>
               <th>Average age</th>
               <th>Average BMI</th>
+              <th>Average BMR</th>
+              <th>Average TDEE</th>
             </tr>
           </thead>
           <tbody>
@@ -73,7 +83,9 @@ function call_p(){
                 <td>${sex.sex}</td>
                 <td>${sex.count}</td>
                 <td>${sex.avg_age}</td>
-                <td>${sex.avg_bmi.toFixed(2)}</td>
+                <td>${parseFloat(sex.avg_bmi).toFixed(2)}</td>
+                <td>${parseFloat(sex.avg_bmr).toFixed(2)}</td>
+                <td>${parseFloat(sex.avg_tdee).toFixed(2)}</td>
               </tr>
             `).join('')}
           </tbody>
@@ -121,6 +133,33 @@ function countBmi() {
   } else if (30 <= bmi) {
     result = "Extremely obese";
   }
+  // calculate the initial BMR value
+  bmr = 10 * Number(p[2]) + 6.25 * Number(p[1]) - 5 * Number(p[0]);
+
+  // gender specific adjustment
+  if (p[3] === "male") {
+    bmr += 5;
+  } else if (p[3] === "female") {
+    bmr -= 161;
+  }
+  bmr = bmr.toFixed(0)
+
+  var se = (bmr * 1.2);
+  var l = (bmr * 1.375);
+  var m = (bmr * 1.55);
+  var v = (bmr * 1.725);
+  var su = (bmr * 1.9);
+
+  sedentary.innerHTML = se.toFixed(0);
+  light.innerHTML = l.toFixed(0);
+  moderate.innerHTML = m.toFixed(0);
+  veryActive.innerHTML = v.toFixed(0);
+  superActive.innerHTML = su.toFixed(0);
+
+  var tdee = (se+l+m+v+su)/5;
+
+  document.querySelector("#result1").innerHTML = bmr;
+  resultArea1.style.display = "block";
 
   resultArea.style.display = "block";
   document.querySelector(".comment").innerHTML =
@@ -131,7 +170,7 @@ function countBmi() {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ sex1, age1, bmi })
+    body: JSON.stringify({ sex1, age1, bmi, bmr,tdee })
   })
     .then((res) => res.json())
     .then((data) => {
